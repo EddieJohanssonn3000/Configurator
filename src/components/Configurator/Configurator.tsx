@@ -10,8 +10,8 @@ function Configurator() {
       <Header />
       <OptionSelection />
       <ModelViewer />
-            <Footer />
       <FeatureSelection />
+      <Footer />
     </main>
   );
 }
