@@ -1,9 +1,7 @@
 import Configurator from "./components/Configurator/Configurator";
 
 function App() {
-  return (
-  <Configurator />
-  );
+  return <Configurator />;
 }
 
 export default App;
