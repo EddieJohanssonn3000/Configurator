@@ -1,5 +1,6 @@
 import Header from "../Header/Header";
 import ModelViewer from "../ModelViewer/ModelViewer";
+import Footer from "../Footer/Footer";
 
 
 function Configurator() {
@@ -7,6 +8,7 @@ function Configurator() {
         <main>
             <Header />
             <ModelViewer />
+            <Footer />
         </main>
     );
 }
