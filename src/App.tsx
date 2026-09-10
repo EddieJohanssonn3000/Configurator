@@ -1,18 +1,8 @@
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Bounds } from "@react-three/drei";
-import Model from "./components/Model";
+import Configurator from "./components/Configurator/Configurator";
 
 function App() {
   return (
-    <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
-      <ambientLight intensity={2} />
-
-      <Bounds fit clip observe>
-        <Model />
-      </Bounds>
-
-      <OrbitControls />
-    </Canvas>
+  <Configurator />
   );
 }
 
