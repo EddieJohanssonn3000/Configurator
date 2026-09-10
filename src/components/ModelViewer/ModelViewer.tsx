@@ -21,7 +21,7 @@ function ModelViewer() {
         </Suspense>
 
         <OrbitControls
-        minDistance={3}
+        minDistance={4}
         maxDistance={8} />
       </Canvas>
     </div>
