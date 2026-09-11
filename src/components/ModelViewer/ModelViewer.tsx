@@ -1,23 +1,26 @@
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, useGLTF } from "@react-three/drei";
+import { OrbitControls } from "@react-three/drei";
 import { Suspense } from "react";
 import styles from "./ModelViewer.module.css"
+import VinylPlayer from "./VinylPlayer"
 
-function VinylPlayer() {
-    const { scene } = useGLTF('/models/VP_MOCK_Test_2.glb')
-     
-    return <primitive object={scene} scale={10}position={[0.5, 0, 0]}/>;
-}
 
-function ModelViewer() {
+type ModelViewerProps = {
+  selectedArm: string;
+};
+
+
+function ModelViewer({ selectedArm }: ModelViewerProps) {
   return (
     <div className={styles.viewer}>
       <Canvas camera={{ position: [3, 2, 5], fov: 85 }}>
         <ambientLight intensity={1} />
-        <directionalLight position={[5, 5, 5]} intensity={2} />
+        <directionalLight position={[5, 5, 5]} intensity={3} />
+        <directionalLight position={[-5, 3, 2]} intensity={7} />
+        <directionalLight position={[0, 5, -5]} intensity={2} />
         
         <Suspense fallback={null}>
-          <VinylPlayer />
+          <VinylPlayer selectedArm={selectedArm} />
         </Suspense>
 
         <OrbitControls
