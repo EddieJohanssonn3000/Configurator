@@ -1,7 +1,7 @@
 import { useConfigurator } from "../../hooks/useConfigurator";
 import styles from "./OptionSelection.module.css";
 
-const STEPS = ["Colors", "Functions", "Custom", "Background"] as const;
+const STEPS = ["Design", "Functions", "Custom"] as const;
 
 function OptionSelection() {
   const { activeStep, setActiveStep } = useConfigurator();
