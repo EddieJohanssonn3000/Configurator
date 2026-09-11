@@ -1,16 +1,13 @@
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { Suspense } from "react";
-import styles from "./ModelViewer.module.css"
-import VinylPlayer from "./VinylPlayer"
+import styles from "./ModelViewer.module.css";
+import VinylPlayer from "./VinylPlayer";
+import { useConfigurator } from "../../hooks/useConfigurator";
 
+function ModelViewer() {
+  const { selectedArm } = useConfigurator();
 
-type ModelViewerProps = {
-  selectedArm: string;
-};
-
-
-function ModelViewer({ selectedArm }: ModelViewerProps) {
   return (
     <div className={styles.viewer}>
       <Canvas camera={{ position: [3, 2, 5], fov: 85 }}>
@@ -18,14 +15,12 @@ function ModelViewer({ selectedArm }: ModelViewerProps) {
         <directionalLight position={[5, 5, 5]} intensity={3} />
         <directionalLight position={[-5, 3, 2]} intensity={7} />
         <directionalLight position={[0, 5, -5]} intensity={2} />
-        
+
         <Suspense fallback={null}>
           <VinylPlayer selectedArm={selectedArm} />
         </Suspense>
 
-        <OrbitControls
-        minDistance={4}
-        maxDistance={8} />
+        <OrbitControls minDistance={4} maxDistance={8} />
       </Canvas>
     </div>
   );
