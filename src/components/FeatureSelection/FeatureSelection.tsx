@@ -15,8 +15,15 @@ function FeatureSelection() {
       {activeStep === "Functions" && (
         <div>
           <p>Bluetooth</p>
-          <p>Ligth</p>
+          <p>Light</p>
           <p>Stereo</p>
+        </div>
+      )}
+      {activeStep === "Custom" && (
+        <div>
+          <p>Stickers</p>
+          <p>Limited Edition</p>
+          <p>Dust Cover</p>
         </div>
       )}
     </div>
