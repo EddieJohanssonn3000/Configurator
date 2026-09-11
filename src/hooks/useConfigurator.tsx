@@ -31,7 +31,7 @@ export function ConfiguratorProvider({ children }: { children: ReactNode }) {
   setSliderValue(value);
 
   const rotation =
-    ((value - 50) / 50) * (Math.PI / 2);
+    ((value - 50) / 50) * (Math.PI / 1);
 
   setRotationY(rotation);
     };
