@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useConfigurator } from "../../hooks/useConfigurator";
 import styles from "./OptionSelection.module.css";
 
 const STEPS = ["Colors", "Functions", "Custom", "Background"] as const;
 
 function OptionSelection() {
-  const [activeStep, setActiveStep] = useState("Colors");
+  const { activeStep, setActiveStep } = useConfigurator();
 
   return (
     <div className={styles.nav}>
