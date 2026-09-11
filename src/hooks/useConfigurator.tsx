@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, type ReactNode } from "react";
 
-type StepKey = "Colors" | "Functions" | "Custom" | "Background";
+type StepKey = "Design" | "Functions" | "Custom";
 
 interface ConfiguratorContextValue {
   activeStep: StepKey;
@@ -14,7 +14,7 @@ const ConfiguratorContext = createContext<ConfiguratorContextValue | null>(
 );
 
 export function ConfiguratorProvider({ children }: { children: ReactNode }) {
-  const [activeStep, setActiveStep] = useState<StepKey>("Colors");
+  const [activeStep, setActiveStep] = useState<StepKey>("Design");
   const [selectedArm, setSelectedArm] = useState("standard");
 
   return (

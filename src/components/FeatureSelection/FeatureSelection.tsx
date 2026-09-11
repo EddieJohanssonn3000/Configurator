@@ -5,11 +5,12 @@ function FeatureSelection() {
 
   return (
     <div>
-      {activeStep === "Colors" && (
+      {activeStep === "Design" && (
         <div>
-          <p>Shell</p>
+          <p>Color Theme</p>
           <p>Feet</p>
           <p>Tonearm</p>
+          <p>Dial</p>
         </div>
       )}
       {activeStep === "Functions" && (
