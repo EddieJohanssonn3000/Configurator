@@ -6,6 +6,7 @@ import FeatureSelection from "../FeatureSelection/FeatureSelection";
 import styles from "./Configurator.module.css";
 import { ConfiguratorProvider, useConfigurator, } from "../../hooks/useConfigurator";
 import ViewToggle from "../ViewToggle/ViewToggle";
+import View3D from "../View3D/View3D";
 
 function Configurator() {
   return (
@@ -13,6 +14,7 @@ function Configurator() {
       <main>
         <Header />
         <ViewToggle />
+        <View3D />
         <section className={styles.contentWrapper}>
           <OptionSelection />
           <ModelViewer />
