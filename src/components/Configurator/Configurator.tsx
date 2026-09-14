@@ -4,7 +4,7 @@ import Footer from "../Footer/Footer";
 import OptionSelection from "../OptionSelection/OptionSelection";
 import FeatureSelection from "../FeatureSelection/FeatureSelection";
 import styles from "./Configurator.module.css";
-import { ConfiguratorProvider, useConfigurator, } from "../../hooks/useConfigurator";
+import { ConfiguratorProvider } from "../../hooks/useConfigurator";
 
 function Configurator() {
   return (
