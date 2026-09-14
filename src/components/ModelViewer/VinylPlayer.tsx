@@ -23,7 +23,7 @@ function VinylPlayer({ selectedArm, rotationY}: ModelViewerProps) {
     }
 
      
-    return <primitive object={scene} scale={10} position={[0.5, 0, 0]} rotation={[0, rotationY, 0]}
+    return <primitive object={scene} scale={15} position={[0.5, 0, 0]} rotation={[0, rotationY, 0]}
   />
 }
 
