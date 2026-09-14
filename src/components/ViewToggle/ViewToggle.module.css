@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 2rem;
+  /* padding-top: 1rem; */
 }
 
 .slider {
@@ -38,4 +38,12 @@
   margin: 2rem 0 0;
   font-size: 1rem;
   color: #000;
+}
+
+.title {
+  margin: 0 0 2rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #999;
+  text-align: center;
 }
