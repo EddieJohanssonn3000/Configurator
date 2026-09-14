@@ -1,5 +1,4 @@
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
 import { Suspense } from "react";
 import styles from "./ModelViewer.module.css";
 import VinylPlayer from "./VinylPlayer";
@@ -19,8 +18,6 @@ function ModelViewer() {
         <Suspense fallback={null}>
           <VinylPlayer selectedArm={selectedArm} rotationY={rotationY} />
         </Suspense>
-
-        <OrbitControls minDistance={4} maxDistance={8} />
       </Canvas>
     </div>
   );
