@@ -6,11 +6,17 @@ type ModelViewerProps = {
 };
 
 function VinylPlayer({ selectedArm, rotationY}: ModelViewerProps) {
-    const { scene } = useGLTF('/models/VP_MOCK_Test_2.glb')
+    const { scene } = useGLTF('/models/MOCK_v3_AllInOne.glb')
 
      const arm = scene.getObjectByName("Arm001");
+     const lid = scene.getObjectByName("MOCK_LID")
 
-     
+
+     if (lid) {
+       lid.visible = false;
+
+    }
+
 
      if (arm) {
          arm.visible = selectedArm === "standard";
