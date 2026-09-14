@@ -1,4 +1,5 @@
 import { useGLTF } from "@react-three/drei";
+import { useMemo } from "react";
 
 type ModelViewerProps = {
   selectedArm: string;
@@ -6,16 +7,11 @@ type ModelViewerProps = {
 };
 
 function VinylPlayer({ selectedArm, rotationY}: ModelViewerProps) {
-    const { scene } = useGLTF('/models/MOCK_v3_AllInOne.glb')
+  const { scene } = useGLTF('/models/MOCK_v3_AllInOne.glb')
+  const model = useMemo(() => scene.clone(true), [scene]);
 
-     const arm = scene.getObjectByName("Arm001");
-     const lid = scene.getObjectByName("MOCK_LID")
-
-
-     if (lid) {
-       lid.visible = false;
-
-    }
+   const arm = model.getObjectByName("Arm001");
+  //  const lid = model.getObjectByName("MOCK_LID")
 
 
      if (arm) {
@@ -23,7 +19,7 @@ function VinylPlayer({ selectedArm, rotationY}: ModelViewerProps) {
     }
 
      
-    return <primitive object={scene} scale={15} position={[0.5, 0, 0]} rotation={[0, rotationY, 0]}
+    return <primitive object={model} scale={15} position={[0.5, -1.5, 0]} rotation={[0, rotationY, 0]}
   />
 }
 

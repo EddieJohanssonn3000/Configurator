@@ -6,24 +6,17 @@ import { useConfigurator } from "../../hooks/useConfigurator";
 function View3DModel() {
   const { selectedArm, rotationY } = useConfigurator();
   return (
-    <Canvas camera={{ position: [3, 2, 5], fov: 100 }}>
-      <ambientLight intensity={1.5} />
-
-      <directionalLight
-        position={[5, 5, 5]}
-        intensity={2}
-      />
-
-      <directionalLight
-        position={[-5, 3, 2]}
-        intensity={1}
-      />
+    <Canvas camera={{ position: [0, 5, 10], fov: 50 }}>
+      <ambientLight intensity={1} />
+      <directionalLight position={[5, 5, 5]} intensity={3} />
+      <directionalLight position={[-5, 3, 2]} intensity={7} />
+      <directionalLight position={[0, 5, -5]} intensity={2} />
 
       <VinylPlayer 
         selectedArm={selectedArm} rotationY={rotationY}
       />
 
-      <OrbitControls minDistance={5} maxDistance={10} />
+      <OrbitControls minDistance={10} maxDistance={15} />
     </Canvas>
   );
 }
