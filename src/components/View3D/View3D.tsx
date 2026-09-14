@@ -22,10 +22,10 @@ function View3D() {
             className={styles.closeButton}
             onClick={() => setIs3DOpen(false)}
             >
-            Close
+            X
          </button>
 
-        <h2>View in 3D</h2>
+          <p>Drag to rotate • Scroll to zoom</p>
 
       <View3DModel />
     </div>

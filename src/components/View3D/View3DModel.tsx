@@ -6,7 +6,7 @@ import { useConfigurator } from "../../hooks/useConfigurator";
 function View3DModel() {
   const { selectedArm, rotationY } = useConfigurator();
   return (
-    <Canvas camera={{ position: [3, 2, 5], fov: 85 }}>
+    <Canvas camera={{ position: [3, 2, 5], fov: 100 }}>
       <ambientLight intensity={1.5} />
 
       <directionalLight
@@ -23,7 +23,7 @@ function View3DModel() {
         selectedArm={selectedArm} rotationY={rotationY}
       />
 
-      <OrbitControls />
+      <OrbitControls minDistance={5} maxDistance={10} />
     </Canvas>
   );
 }
