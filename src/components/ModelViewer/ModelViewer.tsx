@@ -19,8 +19,6 @@ function ModelViewer() {
         <Suspense fallback={null}>
           <VinylPlayer selectedArm={selectedArm} rotationY={rotationY} />
         </Suspense>
-
-        <OrbitControls minDistance={4} maxDistance={8} />
       </Canvas>
     </div>
   );

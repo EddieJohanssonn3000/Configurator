@@ -1,4 +1,6 @@
 import { useConfigurator } from "../../hooks/useConfigurator";
+import styles from "./ViewToggle.module.css"
+
 
 function ViewToggle() {
   const {
@@ -7,7 +9,10 @@ function ViewToggle() {
   } = useConfigurator();
 
   return (
-    <input
+
+    <div className={styles.container}>
+    
+    <input className={styles.slider}
       type="range"
       min="0"
       max="100"
@@ -15,7 +20,9 @@ function ViewToggle() {
       onChange={(e) =>
         handleRotationChange(Number(e.target.value))
       }
-    />
+      />
+     <p className={styles.label}>Toggle to change view</p>
+    </div>
   );
 }
 

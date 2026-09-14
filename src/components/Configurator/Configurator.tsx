@@ -1,4 +1,3 @@
-import Header from "../Header/Header";
 import ModelViewer from "../ModelViewer/ModelViewer";
 import Footer from "../Footer/Footer";
 import OptionSelection from "../OptionSelection/OptionSelection";
@@ -12,7 +11,6 @@ function Configurator() {
   return (
     <ConfiguratorProvider>
       <main>
-        <Header />
         <ViewToggle />
         <View3D />
         <section className={styles.contentWrapper}>
