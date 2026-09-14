@@ -1,5 +1,4 @@
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
 import { Suspense } from "react";
 import styles from "./ModelViewer.module.css";
 import VinylPlayer from "./VinylPlayer";
