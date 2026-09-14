@@ -26,3 +26,18 @@
   padding: 1rem 1.5rem;
   cursor: pointer;
 }
+
+.viewButton {
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  position: absolute;
+  top: 2rem;
+  right: 3rem;
+}
+
+.viewButton img {
+  width: auto;
+  height: auto;
+}
