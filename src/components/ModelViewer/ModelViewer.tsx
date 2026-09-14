@@ -6,7 +6,7 @@ import VinylPlayer from "./VinylPlayer";
 import { useConfigurator } from "../../hooks/useConfigurator";
 
 function ModelViewer() {
-  const { selectedArm } = useConfigurator();
+  const { selectedArm, rotationY } = useConfigurator();
 
   return (
     <div className={styles.viewer}>
@@ -17,7 +17,7 @@ function ModelViewer() {
         <directionalLight position={[0, 5, -5]} intensity={2} />
 
         <Suspense fallback={null}>
-          <VinylPlayer selectedArm={selectedArm} />
+          <VinylPlayer selectedArm={selectedArm} rotationY={rotationY} />
         </Suspense>
 
         <OrbitControls minDistance={4} maxDistance={8} />
