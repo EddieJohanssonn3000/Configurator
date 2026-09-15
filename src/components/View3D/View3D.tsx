@@ -8,17 +8,21 @@ import lidOpen from "../../assets/images/LidOpen.svg";
 
 
 function View3D() {
-  const { is3DOpen, setIs3DOpen } = useConfigurator();
+  const { is3DOpen, setIs3DOpen, setLidOpen } = useConfigurator();
 
   return (
     <>
     <div className={styles.actions}>
       <div className={styles.lidButtons}>
-        <button className={styles.lidButton}>
+        <button className={styles.lidButton}
+        onClick={() => setLidOpen(false)}
+        >
           <img src={lidClosed} alt="Closed lid" />
         </button>
 
-        <button className={styles.lidButton}>
+        <button className={styles.lidButton}
+        onClick={() => setLidOpen(true)}
+        >
           <img src={lidOpen} alt="Open lid" />
         </button>
       </div>
