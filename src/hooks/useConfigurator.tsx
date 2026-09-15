@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, type ReactNode } from "react";
 
-type StepKey = "Design" | "Functions" | "Custom";
+type StepKey = "Design" | "Functions" | "Custom" | "Summary";
 
 interface ConfiguratorContextValue {
   activeStep: StepKey;

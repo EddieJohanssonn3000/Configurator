@@ -39,7 +39,8 @@ function Footer() {
       )}
 
       {activeStep === "Custom" && (
-        <button>Done</button>
+        <button onClick={() => setActiveStep("Summary")}>
+          Done</button>
       )}
     </footer>
   );
