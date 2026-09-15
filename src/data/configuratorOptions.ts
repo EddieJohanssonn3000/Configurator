@@ -6,7 +6,12 @@ export const FEATURES_BY_STEP = {
       options: ["#1a1a1a", "#8b5e3c", "#c9c9c9"],
     },
     { key: "feet", label: "Feet", options: ["MOCK_LEG_A", "MOCK_LEG_B"] },
-    { key: "tonearm", label: "Tonearm", options: ["standard", "none"] },
+    {
+      key: "tonearmStyle",
+      label: "Tonearm",
+      options: ["MOCK_ARM_A", "MOCK_ARM_B"],
+    },
+    // { key: "tonearm", label: "Tonearm", options: ["standard", "none"] },
     // { key: "dial", label: "Dials", options: ["classic", "modern"] },
     {
       key: "buttons",
