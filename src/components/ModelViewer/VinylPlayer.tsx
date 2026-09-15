@@ -11,8 +11,9 @@ type VinylPlayerProps = {
 function VinylPlayer({ selectedArm, rotationY }: VinylPlayerProps) {
   const { scene } = useGLTF("/models/MOCK_v3_AllInOne.glb");
   const { selectedOptions } = useConfigurator();
-
   const feetIndex = selectedOptions["feet"] ?? 0;
+  const buttonsIndex = selectedOptions["buttons"] ?? 0;
+  // index 0 = MOCK_BUTTONS_A, index 1 = MOCK_BUTTONS_B
 
   useEffect(() => {
     scene.traverse((child) => {
@@ -31,12 +32,16 @@ function VinylPlayer({ selectedArm, rotationY }: VinylPlayerProps) {
     const lid = scene.getObjectByName("MOCK_LID");
     const legA = scene.getObjectByName("MOCK_LEG_A");
     const legB = scene.getObjectByName("MOCK_LEG_B");
+    const buttonsA = scene.getObjectByName("MOCK_BUTTONS_A");
+    const buttonsB = scene.getObjectByName("MOCK_BUTTONS_B");
 
     if (lid) lid.visible = false;
     if (arm) arm.visible = selectedArm === "standard";
     if (legA) legA.visible = feetIndex === 0;
     if (legB) legB.visible = feetIndex === 1;
-  }, [scene, selectedArm, feetIndex]);
+    if (buttonsA) buttonsA.visible = buttonsIndex === 0;
+    if (buttonsB) buttonsB.visible = buttonsIndex === 1;
+  }, [scene, selectedArm, feetIndex, buttonsIndex]);
 
   return (
     <primitive

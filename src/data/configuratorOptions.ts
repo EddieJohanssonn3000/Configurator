@@ -7,7 +7,12 @@ export const FEATURES_BY_STEP = {
     },
     { key: "feet", label: "Feet", options: ["MOCK_LEG_A", "MOCK_LEG_B"] },
     { key: "tonearm", label: "Tonearm", options: ["standard", "none"] },
-    { key: "dial", label: "Dials", options: ["classic", "modern"] },
+    // { key: "dial", label: "Dials", options: ["classic", "modern"] },
+    {
+      key: "buttons",
+      label: "Buttons",
+      options: ["MOCK_BUTTONS_A", "MOCK_BUTTONS_B"],
+    },
   ],
   Functions: [
     { key: "bluetooth", label: "Bluetooth", options: ["on", "off"] },
