@@ -9,7 +9,7 @@ function ModelViewer() {
 
   return (
     <div className={styles.viewer}>
-      <Canvas camera={{ position: [0, 5, 10], fov: 40 }}>
+      <Canvas camera={{ position: [0, 3, 10], fov: 40 }}>
         <ambientLight intensity={1} />
         <directionalLight position={[5, 5, 5]} intensity={3} />
         <directionalLight position={[-5, 3, 2]} intensity={7} />

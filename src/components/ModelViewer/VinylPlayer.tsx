@@ -45,7 +45,7 @@ useEffect(() => {
     }
 
      
-    return <primitive object={model} scale={10} position={[0.5, -1.5, 0]} rotation={[0, rotationY, 0]}
+    return <primitive object={model} scale={13} position={[0.5, -2.5, 0]} rotation={[0, rotationY, 0]}
   />
 }
 
