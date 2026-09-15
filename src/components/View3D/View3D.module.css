@@ -58,3 +58,21 @@ p {
   color: #BABABA;
   font-size: large;
 }
+
+.lidButton {
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.lidButtons {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.lidButton img {
+  width: auto;
+  height: auto;
+}
