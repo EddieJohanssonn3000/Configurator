@@ -28,7 +28,7 @@ export function ConfiguratorProvider({ children }: { children: ReactNode }) {
   const [rotationY, setRotationY] = useState(0);
   const [sliderValue, setSliderValue] = useState(50);
   const [is3DOpen, setIs3DOpen] = useState(false);
-  const [lidOpen, setLidOpen] = useState(false);
+  const [lidOpen, setLidOpen] = useState(true);
 
   const handleRotationChange = (value: number) => {
   setSliderValue(value);

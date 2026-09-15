@@ -16,7 +16,7 @@ function View3DModel() {
         selectedArm={selectedArm} rotationY={rotationY}
       />
 
-      <OrbitControls minDistance={10} maxDistance={15} />
+      <OrbitControls minDistance={5} maxDistance={15} />
     </Canvas>
   );
 }
