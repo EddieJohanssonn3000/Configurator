@@ -13,24 +13,26 @@ function VinylPlayer({ selectedArm, rotationY}: ModelViewerProps) {
   const { actions } = useAnimations(animations, model);
   const { lidOpen } = useConfigurator();
 
-  useEffect(() => {
+useEffect(() => {
   const action = actions["LidAction.001"];
 
   if (!action) return;
 
-  action.reset();
-  action.setLoop(2201, 1);
+  action.stop();
+  action.setLoop(2201, -1);
   action.clampWhenFinished = true;
 
   if (lidOpen) {
-    action.timeScale = 1;
+    action.timeScale = 0.2;
+    action.time = 0;
     action.play();
   } else {
-    action.timeScale = -1;
+    action.timeScale = -0.2;
     action.time = action.getClip().duration;
     action.play();
   }
 }, [lidOpen, actions]);
+
 
   
 
@@ -43,7 +45,7 @@ function VinylPlayer({ selectedArm, rotationY}: ModelViewerProps) {
     }
 
      
-    return <primitive object={model} scale={15} position={[0.5, -1.5, 0]} rotation={[0, rotationY, 0]}
+    return <primitive object={model} scale={10} position={[0.5, -1.5, 0]} rotation={[0, rotationY, 0]}
   />
 }
 
