@@ -2,11 +2,9 @@
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.7);
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   z-index: 1000;
 }
 
@@ -31,17 +29,25 @@
   font-size: 2rem;
 }
 
+.actions {
+  position: absolute;
+  top: 2rem;
+  right: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.infoButton,
 .viewButton {
   border: none;
   background: transparent;
   padding: 0;
   cursor: pointer;
-  position: absolute;
-  top: 2rem;
-  right: 3rem;
 }
 
-.viewButton img {
+.viewButton img,
+.infoButton img {
   width: auto;
   height: auto;
 }
