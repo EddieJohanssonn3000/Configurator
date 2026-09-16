@@ -2,19 +2,27 @@ import { useConfigurator } from "../../hooks/useConfigurator";
 import { FEATURES_BY_STEP } from "../../data/configuratorOptions";
 import styles from "./FeatureSelection.module.css";
 
+const THEME_KEYS = ["red", "gb", "unikko", "wood"] as const;
+
 function FeatureSelection() {
-  const { activeStep, selectedOptions, cycleOption } = useConfigurator();
+  const { activeStep, cycleOption, selectedTheme, setSelectedTheme } =
+    useConfigurator();
 
   const features =
     FEATURES_BY_STEP[activeStep as keyof typeof FEATURES_BY_STEP] ?? [];
 
+  const cycleTheme = (direction: 1 | -1) => {
+    const currentIndex = THEME_KEYS.indexOf(selectedTheme);
+    const nextIndex =
+      (currentIndex + direction + THEME_KEYS.length) % THEME_KEYS.length;
+    setSelectedTheme(THEME_KEYS[nextIndex]);
+  };
+
   return (
     <div className={styles.panel}>
-      <span className={styles.scrollLabel}>Scroll</span>
       <div className={styles.list}>
         {features.map((feature) => {
-          const selectedIndex = selectedOptions[feature.key] ?? 0;
-          const currentValue = feature.options[selectedIndex];
+          const isColorTheme = feature.key === "colorTheme";
 
           return (
             <div key={feature.key} className={styles.row}>
@@ -29,7 +37,9 @@ function FeatureSelection() {
                   type="button"
                   className={styles.stepperBtn}
                   onClick={() =>
-                    cycleOption(feature.key, feature.options.length, -1)
+                    isColorTheme
+                      ? cycleTheme(-1)
+                      : cycleOption(feature.key, feature.options.length, -1)
                   }
                 >
                   ▲
@@ -38,16 +48,14 @@ function FeatureSelection() {
                   type="button"
                   className={styles.stepperBtn}
                   onClick={() =>
-                    cycleOption(feature.key, feature.options.length, 1)
+                    isColorTheme
+                      ? cycleTheme(1)
+                      : cycleOption(feature.key, feature.options.length, 1)
                   }
                 >
                   ▼
                 </button>
               </div>
-              {/* temporary, remove once you trust it visually */}
-              <span style={{ fontSize: 10, color: "#999" }}>
-                {currentValue}
-              </span>
             </div>
           );
         })}
