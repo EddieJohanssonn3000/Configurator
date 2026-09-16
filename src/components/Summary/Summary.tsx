@@ -5,6 +5,7 @@ import feetB from "../../assets/images/Feet_B.svg";
 import armA from "../../assets/images/Arm_A.svg";
 import buttonA from "../../assets/images/Button_A.svg";
 import sticker from "../../assets/images/Sticker.svg";
+import stereo from "../../assets/images/Stereo.svg"
 
 function Summary() {
   const [isConfigurationOpen, setIsConfigurationOpen] = useState(false);
@@ -142,7 +143,7 @@ function Summary() {
           </div>
 
           <div className={styles.thumbnail}>
-            IMG
+            <img src={stereo} alt="Stereo" />
           </div>
         </div>
 
