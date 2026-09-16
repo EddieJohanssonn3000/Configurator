@@ -1,6 +1,10 @@
 import { useState } from "react";
 import styles from "./Summary.module.css";
-import { div } from "three/tsl";
+import rubyRed from "../../assets/images/Ruby-Red.svg";
+import feetB from "../../assets/images/Feet_B.svg";
+import armA from "../../assets/images/Arm_A.svg";
+import buttonA from "../../assets/images/Button_A.svg";
+import sticker from "../../assets/images/Sticker.svg";
 
 function Summary() {
   const [isConfigurationOpen, setIsConfigurationOpen] = useState(false);
@@ -84,7 +88,7 @@ function Summary() {
           </div>
 
           <div className={styles.thumbnail}>
-            RED
+            <img src={rubyRed} alt="Ruby red" />
           </div>
         </div>
 
@@ -95,7 +99,7 @@ function Summary() {
           </div>
 
           <div className={styles.thumbnail}>
-            RED
+             <img src={feetB} alt="Feet B" />
           </div>
         </div>
 
@@ -106,7 +110,7 @@ function Summary() {
           </div>
 
           <div className={styles.thumbnail}>
-            RED
+            <img src={armA} alt="Arm A" />
           </div>
         </div>
 
@@ -117,7 +121,7 @@ function Summary() {
           </div>
 
           <div className={styles.thumbnail}>
-            RED
+            <img src={buttonA} alt="Button A" />
           </div>
         </div>
 
@@ -149,7 +153,7 @@ function Summary() {
           </div>
 
           <div className={styles.thumbnail}>
-            IMG
+            <img src={sticker} alt="Sticker" />
           </div>
         </div>
 
