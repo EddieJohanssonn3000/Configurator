@@ -1,21 +1,30 @@
 import { useState } from "react";
+import { useConfigurator } from "../../hooks/useConfigurator";
 import styles from "./Summary.module.css";
-import rubyRed from "../../assets/images/Ruby-Red.svg";
-import feetB from "../../assets/images/Feet_B.svg";
-import armA from "../../assets/images/Arm_A.svg";
-import buttonA from "../../assets/images/Button_A.svg";
-import sticker from "../../assets/images/Sticker.svg";
-import stereo from "../../assets/images/Stereo.svg"
+import ColorTheme from "../../assets/images/Unikko_color_theme.webp";
+import feetB from "../../assets/images/Unikko_leg.webp";
+import armA from "../../assets/images/Unikko_arm.webp";
+import buttonA from "../../assets/images/Unikko_dial.webp";
+import sticker from "../../assets/images/Unikko_sticker.webp";
+import stereo from "../../assets/images/Unikko_stereo.webp"
+import arrow from "../../assets/images/BackArrow.svg"
+import slipmat from "../../assets/images/Unikko_slipmat.webp"
 
 function Summary() {
   const [isConfigurationOpen, setIsConfigurationOpen] = useState(false);
 
+  const { setActiveStep } = useConfigurator();
+
   return (
    <main className={styles.summary}>
       <header className={styles.header}>
-        <button className={styles.backButton}>
+      <button
+          className={styles.backButton}
+          onClick={() => setActiveStep("Custom")}
+        >
+          <img src={arrow} alt="arrow" />
           Go back to configuration
-        </button>
+      </button>
         <h1>Summary</h1>
       </header>
 
@@ -85,11 +94,11 @@ function Summary() {
         <div className={styles.configurationItemWithImage}>
           <div>
             <span>Color theme</span>
-            <strong>Ruby red</strong>
+            <strong>Unikko</strong>
           </div>
 
           <div className={styles.thumbnail}>
-            <img src={rubyRed} alt="Ruby red" />
+            <img src={ColorTheme} alt="color theme" />
           </div>
         </div>
 
@@ -165,7 +174,7 @@ function Summary() {
           </div>
 
           <div className={styles.thumbnail}>
-            IMG
+            <img src={slipmat} alt="Slipmat" />
           </div>
         </div>
       </div>
