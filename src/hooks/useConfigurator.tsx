@@ -14,6 +14,12 @@ interface ConfiguratorContextValue {
   handleRotationChange: (value: number) => void;
   is3DOpen: boolean;
   setIs3DOpen: (isOpen: boolean) => void;
+  selectedOptions: Record<string, number>;
+  cycleOption: (
+    featureKey: string,
+    optionCount: number,
+    direction: 1 | -1,
+  ) => void;
 }
 
 const ConfiguratorContext = createContext<ConfiguratorContextValue | null>(
@@ -26,19 +32,47 @@ export function ConfiguratorProvider({ children }: { children: ReactNode }) {
   const [rotationY, setRotationY] = useState(0);
   const [sliderValue, setSliderValue] = useState(50);
   const [is3DOpen, setIs3DOpen] = useState(false);
+  const [selectedOptions, setSelectedOptions] = useState<
+    Record<string, number>
+  >({});
 
   const handleRotationChange = (value: number) => {
-  setSliderValue(value);
+    setSliderValue(value);
 
-  const rotation =
-    ((value - 50) / 50) * (Math.PI / 1);
+    const rotation = ((value - 50) / 50) * (Math.PI / 1);
 
-  setRotationY(rotation);
-    };
+    setRotationY(rotation);
+  };
+
+  const cycleOption = (
+    featureKey: string,
+    optionCount: number,
+    direction: 1 | -1,
+  ) => {
+    setSelectedOptions((prev) => {
+      const current = prev[featureKey] ?? 0;
+      const next = (current + direction + optionCount) % optionCount;
+      return { ...prev, [featureKey]: next };
+    });
+  };
 
   return (
     <ConfiguratorContext.Provider
-      value={{ activeStep, setActiveStep, selectedArm, setSelectedArm, rotationY, setRotationY, sliderValue, setSliderValue, handleRotationChange, is3DOpen, setIs3DOpen }}
+      value={{
+        activeStep,
+        setActiveStep,
+        selectedArm,
+        setSelectedArm,
+        rotationY,
+        setRotationY,
+        sliderValue,
+        setSliderValue,
+        handleRotationChange,
+        is3DOpen,
+        setIs3DOpen,
+        selectedOptions,
+        cycleOption,
+      }}
     >
       {children}
     </ConfiguratorContext.Provider>
