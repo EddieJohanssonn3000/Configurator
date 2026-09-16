@@ -1,10 +1,14 @@
 import { createContext, useContext, useState, type ReactNode } from "react";
 
 type StepKey = "Design" | "Functions" | "Custom" | "Summary";
+type ThemeKey = "red" | "gb" | "unikko" | "wood";
 
 interface ConfiguratorContextValue {
   activeStep: StepKey;
   setActiveStep: (step: StepKey) => void;
+
+  selectedTheme: ThemeKey;
+  setSelectedTheme: (theme: ThemeKey) => void;
 
   selectedArm: string;
   setSelectedArm: (arm: string) => void;
@@ -31,16 +35,14 @@ interface ConfiguratorContextValue {
   ) => void;
 }
 
-const ConfiguratorContext =
-  createContext<ConfiguratorContextValue | null>(null);
+const ConfiguratorContext = createContext<ConfiguratorContextValue | null>(
+  null,
+);
 
-export function ConfiguratorProvider({
-  children,
-}: {
-  children: ReactNode;
-}) {
-  const [activeStep, setActiveStep] =
-    useState<StepKey>("Design");
+export function ConfiguratorProvider({ children }: { children: ReactNode }) {
+  const [activeStep, setActiveStep] = useState<StepKey>("Design");
+
+  const [selectedTheme, setSelectedTheme] = useState<ThemeKey>("red");
 
   const [selectedArm, setSelectedArm] = useState("standard");
 
@@ -59,8 +61,7 @@ export function ConfiguratorProvider({
   const handleRotationChange = (value: number) => {
     setSliderValue(value);
 
-    const rotation =
-      ((value - 50) / 50) * (Math.PI / 1);
+    const rotation = ((value - 50) / 50) * (Math.PI / 1);
 
     setRotationY(rotation);
   };
@@ -73,8 +74,7 @@ export function ConfiguratorProvider({
     setSelectedOptions((prev) => {
       const current = prev[featureKey] ?? 0;
 
-      const next =
-        (current + direction + optionCount) % optionCount;
+      const next = (current + direction + optionCount) % optionCount;
 
       return {
         ...prev,
@@ -88,6 +88,8 @@ export function ConfiguratorProvider({
       value={{
         activeStep,
         setActiveStep,
+        selectedTheme,
+        setSelectedTheme,
         selectedArm,
         setSelectedArm,
         rotationY,

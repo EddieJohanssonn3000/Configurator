@@ -1,35 +1,29 @@
 import { useGLTF, useAnimations } from "@react-three/drei";
-import { useMemo, useEffect } from "react";
+import { useEffect } from "react";
 import { useConfigurator } from "../../hooks/useConfigurator";
+import { COLOR_THEMES } from "../../data/colorThemes";
+import ModelPart from "./ModelPart";
 
 type VinylPlayerProps = {
-  selectedArm: string;
   rotationY: number;
 };
 
-function VinylPlayer({ selectedArm, rotationY }: VinylPlayerProps) {
-  const { scene, animations } = useGLTF(
-    "/models/MOCK_v3_AllInOne.glb",
-  );
-
-  const model = useMemo(() => scene.clone(true), [scene]);
-
-  const { actions } = useAnimations(animations, model);
-
-  const { lidOpen, selectedOptions } = useConfigurator();
-
-  const feetIndex = selectedOptions["feet"] ?? 0;
-  const buttonsIndex = selectedOptions["buttons"] ?? 0;
-  const tonearmStyleIndex =
-    selectedOptions["tonearmStyle"] ?? 0;
+function AnimatedLid({ path }: { path: string }) {
+  const { scene, animations } = useGLTF(path);
+  const { actions } = useAnimations(animations, scene);
+  const { lidOpen } = useConfigurator();
 
   useEffect(() => {
-    const action = actions["LidAction.001"];
+    const actionName = Object.keys(actions)[0]; // grab whatever clip exists, regardless of name
+    const action = actionName ? actions[actionName] : undefined;
 
-    if (!action) return;
+    if (!action) {
+      console.warn("No lid animation found for", path);
+      return;
+    }
 
     action.stop();
-    action.setLoop(2201, -1);
+    action.setLoop(2201, -1); // THREE.LoopRepeat
     action.clampWhenFinished = true;
 
     if (lidOpen) {
@@ -41,39 +35,29 @@ function VinylPlayer({ selectedArm, rotationY }: VinylPlayerProps) {
       action.time = action.getClip().duration;
       action.play();
     }
-  }, [lidOpen, actions]);
+  }, [lidOpen, actions, path]);
 
-  useEffect(() => {
-    const arm = model.getObjectByName("Arm001");
-    const legA = model.getObjectByName("MOCK_LEG_A");
-    const legB = model.getObjectByName("MOCK_LEG_B");
-    const buttonsA = model.getObjectByName("MOCK_BUTTONS_A");
-    const buttonsB = model.getObjectByName("MOCK_BUTTONS_B");
-    const tonearmA = model.getObjectByName("MOCK_ARM_A");
-    const tonearmB = model.getObjectByName("MOCK_ARM_B");
+  return <primitive object={scene} />;
+}
 
-    if (arm) arm.visible = selectedArm === "standard";
-    if (legA) legA.visible = feetIndex === 0;
-    if (legB) legB.visible = feetIndex === 1;
-    if (buttonsA) buttonsA.visible = buttonsIndex === 0;
-    if (buttonsB) buttonsB.visible = buttonsIndex === 1;
-    if (tonearmA) tonearmA.visible = tonearmStyleIndex === 0;
-    if (tonearmB) tonearmB.visible = tonearmStyleIndex === 1;
-  }, [
-    model,
-    selectedArm,
-    feetIndex,
-    buttonsIndex,
-    tonearmStyleIndex,
-  ]);
+function VinylPlayer({ rotationY }: VinylPlayerProps) {
+  const { selectedTheme, selectedOptions } = useConfigurator();
 
+  const theme = COLOR_THEMES[selectedTheme];
+
+  const armPath = theme.parts.arm[selectedOptions["arm"] ?? 0];
+  const bodyPath = theme.parts.body[selectedOptions["body"] ?? 0];
+  const buttonPath = theme.parts.button[selectedOptions["button"] ?? 0];
+  const legPath = theme.parts.leg[selectedOptions["leg"] ?? 0];
+  const lidPath = theme.parts.lid[0];
   return (
-    <primitive
-      object={model}
-      scale={10}
-      position={[0.5, -2, 0]}
-      rotation={[0, rotationY, 0]}
-    />
+    <group scale={15} position={[0.5, -2, 0]} rotation={[0, rotationY, 0]}>
+      <ModelPart path={bodyPath} />
+      <ModelPart path={armPath} />
+      <ModelPart path={buttonPath} />
+      <ModelPart path={legPath} />
+      <AnimatedLid path={lidPath} />
+    </group>
   );
 }
 

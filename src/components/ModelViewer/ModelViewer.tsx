@@ -4,10 +4,9 @@ import { Suspense } from "react";
 import styles from "./ModelViewer.module.css";
 import VinylPlayer from "./VinylPlayer";
 import { useConfigurator } from "../../hooks/useConfigurator";
-import TestAssembly from "./TestAssembly";
 
 function ModelViewer() {
-  const { selectedArm, rotationY } = useConfigurator();
+  const { rotationY } = useConfigurator();
 
   return (
     <div className={styles.viewer}>
@@ -18,10 +17,10 @@ function ModelViewer() {
         <directionalLight position={[0, 5, -5]} intensity={2} />
 
         <Suspense fallback={null}>
-          <TestAssembly />
-          {/* <VinylPlayer selectedArm={selectedArm} rotationY={rotationY} /> */}
-          {/* TEMP: dev-only free rotation, remove before final build */}
-          <OrbitControls minDistance={4} maxDistance={8} />
+          <VinylPlayer rotationY={rotationY} />
+          {import.meta.env.DEV && (
+            <OrbitControls minDistance={4} maxDistance={8} />
+          )}
         </Suspense>
       </Canvas>
     </div>

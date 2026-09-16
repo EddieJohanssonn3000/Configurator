@@ -3,21 +3,11 @@ export const FEATURES_BY_STEP = {
     {
       key: "colorTheme",
       label: "Color Theme",
-      options: ["#1a1a1a", "#8b5e3c", "#c9c9c9"],
+      options: ["red", "gb", "unikko", "wood"],
     },
-    { key: "feet", label: "Feet", options: ["MOCK_LEG_A", "MOCK_LEG_B"] },
-    {
-      key: "tonearmStyle",
-      label: "Tonearm",
-      options: ["MOCK_ARM_A", "MOCK_ARM_B"],
-    },
-    // { key: "tonearm", label: "Tonearm", options: ["standard", "none"] },
-    // { key: "dial", label: "Dials", options: ["classic", "modern"] },
-    {
-      key: "buttons",
-      label: "Buttons",
-      options: ["MOCK_BUTTONS_A", "MOCK_BUTTONS_B"],
-    },
+    { key: "leg", label: "Feet", options: ["A", "B"] },
+    { key: "arm", label: "Tonearm", options: ["A", "B"] },
+    { key: "button", label: "Dials", options: ["A", "B"] },
   ],
   Functions: [
     { key: "bluetooth", label: "Bluetooth", options: ["on", "off"] },
@@ -26,7 +16,6 @@ export const FEATURES_BY_STEP = {
   ],
   Custom: [
     { key: "stickers", label: "Stickers", options: ["none", "logo"] },
-    { key: "limitedEdition", label: "Limited Edition", options: ["off", "on"] },
-    { key: "dustCover", label: "Dust Cover", options: ["off", "on"] },
+    { key: "dustCover", label: "Slip Mat", options: ["off", "on"] },
   ],
 } as const;
