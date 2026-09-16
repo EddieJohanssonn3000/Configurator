@@ -134,3 +134,127 @@
   color: #fff;
   cursor: pointer;
 }
+
+.configurationOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1000;
+
+  animation: overlayFadeIn 0.3s ease forwards;
+}
+
+
+.configurationPanel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 28rem;
+  height: 100vh;
+  padding: 2rem;
+  box-sizing: border-box;
+  background: #fff;
+  overflow-y: auto;
+  box-shadow: -8px 0 25px rgba(0, 0, 0, 0.12);
+  animation: slideIn 0.35s ease-out forwards;
+}
+
+.configurationPanel h2 {
+  margin: 0 0 2rem;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #111;
+}
+
+.closeConfiguration {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  border: none;
+  background: transparent;
+  color: #999;
+  font-size: 2rem;
+  font-weight: 200;
+  cursor: pointer;
+}
+
+.configurationItems {
+  width: 100%;
+}
+
+.configurationItem,
+.configurationItemWithImage {
+  min-height: 3rem;
+  padding: 0.7rem 0;
+  box-sizing: border-box;
+  border-bottom: 1px solid #ccc;
+}
+
+.configurationItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.configurationItemWithImage {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.configurationItem span,
+.configurationItemWithImage span {
+  display: block;
+  color: #999;
+  font-size: 0.75rem;
+  font-weight: 300;
+}
+
+.configurationItem strong,
+.configurationItemWithImage strong {
+  display: block;
+  margin-top: 0.2rem;
+  color: #222;
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+.configurationItemWithImage > div:first-child {
+  flex: 1;
+}
+
+.thumbnail {
+  width: 4rem;
+  height: 3rem;
+  flex-shrink: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #eee;
+  color: #999;
+  font-size: 0.6rem;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes overlayFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
