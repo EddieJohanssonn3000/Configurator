@@ -53,7 +53,6 @@ function VinylPlayer({ selectedArm, rotationY }: VinylPlayerProps) {
     const tonearmA = model.getObjectByName("MOCK_ARM_A");
     const tonearmB = model.getObjectByName("MOCK_ARM_B");
 
-    if (lid) lid.visible = false;
     if (arm) arm.visible = selectedArm === "standard";
     if (legA) legA.visible = feetIndex === 0;
     if (legB) legB.visible = feetIndex === 1;
@@ -72,8 +71,8 @@ function VinylPlayer({ selectedArm, rotationY }: VinylPlayerProps) {
   return (
     <primitive
       object={model}
-      scale={13}
-      position={[0.5, -2.5, 0]}
+      scale={10}
+      position={[0.5, -2, 0]}
       rotation={[0, rotationY, 0]}
     />
   );
