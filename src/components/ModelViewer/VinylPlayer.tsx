@@ -45,7 +45,6 @@ function VinylPlayer({ selectedArm, rotationY }: VinylPlayerProps) {
 
   useEffect(() => {
     const arm = model.getObjectByName("Arm001");
-    const lid = model.getObjectByName("MOCK_LID");
     const legA = model.getObjectByName("MOCK_LEG_A");
     const legB = model.getObjectByName("MOCK_LEG_B");
     const buttonsA = model.getObjectByName("MOCK_BUTTONS_A");
