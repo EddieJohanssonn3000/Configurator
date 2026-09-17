@@ -48,11 +48,11 @@
   justify-content: center;
   align-items: center;
   gap: 5rem;
-  margin-top: 6rem;
+  margin-top: 4rem;
 }
 
 .modelArea {
-  width: 32rem;
+  width: 40rem;
   height: 30rem;
   display: flex;
   flex-direction: column;
@@ -224,8 +224,8 @@
 }
 
 .thumbnail {
-  width: 4.5rem;
-  height: 3.5rem;
+  width: 7rem;
+  height: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;

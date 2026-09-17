@@ -91,7 +91,7 @@ useEffect(() => {
     <primitive object={arm.scene} />
     <primitive object={buttons.scene} />
     <primitive object={lid.scene} />
-    <primitive object={stickerModel} />
+    {/* <primitive object={stickerModel} /> */}
   </group>
   );
 }

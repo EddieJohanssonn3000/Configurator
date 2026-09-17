@@ -34,10 +34,11 @@ function Summary() {
         <div className={styles.modelArea}>
           <div className={styles.summaryCanvas}>
             <Canvas camera={{ position: [0, 3, 10], fov: 40 }}>
-              <ambientLight intensity={1.5} />
-              <directionalLight position={[5, 5, 5]} intensity={2} />
-
-              <SummaryModel rotationY={rotationY} />
+             <ambientLight intensity={1} />
+                  <directionalLight position={[5, 5, 5]} intensity={3} />
+                  <directionalLight position={[-5, 3, 2]} intensity={7} />
+                  <directionalLight position={[0, 5, -5]} intensity={2} />
+                <SummaryModel rotationY={rotationY} />
             </Canvas>
           </div>
 
