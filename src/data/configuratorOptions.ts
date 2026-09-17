@@ -25,12 +25,6 @@ export const FEATURES_BY_STEP = {
       label: "Lid Sticker",
       options: ["None", "A", "B", "C"],
     },
-    { key: "limitedEdition", label: "Limited Edition", options: ["off", "on"] },
     { key: "dustCover", label: "Slip Mat", options: ["off", "on"] },
   ],
-
-  // Custom: [
-  //   { key: "stickers", label: "Stickers", options: ["none", "logo"] },
-  //   { key: "dustCover", label: "Slip Mat", options: ["off", "on"] },
-  // ],
 } as const;
