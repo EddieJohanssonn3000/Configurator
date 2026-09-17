@@ -27,11 +27,11 @@ function AnimatedLid({ path }: { path: string }) {
     action.clampWhenFinished = true;
 
     if (lidOpen) {
-      action.timeScale = 0.2;
+      action.timeScale = 0.05;
       action.time = 0;
       action.play();
     } else {
-      action.timeScale = -0.2;
+      action.timeScale = -0.05;
       action.time = action.getClip().duration;
       action.play();
     }

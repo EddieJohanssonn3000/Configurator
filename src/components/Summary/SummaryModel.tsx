@@ -12,7 +12,7 @@ function SummaryModel({ rotationY }: SummaryModelProps) {
   const feet = useGLTF("/models/UNIKKO/Unikko_Leg_B.glb");
   const arm = useGLTF("/models/UNIKKO/Unikko_Arm_A.glb");
   const buttons = useGLTF("/models/UNIKKO/Unikko_Button_A.glb");
-  const sticker = useGLTF("/models/STICKERS/STICKERS_Sticker_Inside_C.glb");
+  const sticker = useGLTF("/models/STICKERS/Sticker_Inside_C.glb");
   const lid = useGLTF("/models/UNIKKO/Unikko_Lid.glb");
 
   const stickerModel = useMemo(
