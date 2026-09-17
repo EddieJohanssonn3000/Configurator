@@ -16,7 +16,7 @@ import { COLOR_THEMES } from "../../data/colorThemes";
 // Preload every model file up front so switching options later doesn't trigger a Suspense re-fetch
 Object.values(COLOR_THEMES).forEach((theme) => {
   Object.values(theme.parts).forEach((variants) => {
-    variants.forEach((path) => useGLTF.preload(path));
+    variants.forEach((path: string) => useGLTF.preload(path));
   });
 });
 

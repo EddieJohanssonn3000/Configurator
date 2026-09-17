@@ -4,7 +4,7 @@ import VinylPlayer from "../ModelViewer/VinylPlayer";
 import { useConfigurator } from "../../hooks/useConfigurator";
 
 function View3DModel() {
-  const { selectedArm, rotationY } = useConfigurator();
+  const { rotationY } = useConfigurator();
   return (
     <Canvas camera={{ position: [0, 5, 10], fov: 50 }}>
       <ambientLight intensity={1} />
@@ -13,7 +13,7 @@ function View3DModel() {
       <directionalLight position={[0, 5, -5]} intensity={2} />
 
       <VinylPlayer 
-        selectedArm={selectedArm} rotationY={rotationY}
+        rotationY={rotationY}
       />
 
       <OrbitControls minDistance={5} maxDistance={15} />
