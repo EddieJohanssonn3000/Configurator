@@ -1,5 +1,5 @@
 import { useGLTF, useAnimations } from "@react-three/drei";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { useConfigurator } from "../../hooks/useConfigurator";
 import { COLOR_THEMES } from "../../data/colorThemes";
 import ModelPart from "./ModelPart";
@@ -10,11 +10,12 @@ type VinylPlayerProps = {
 
 function AnimatedLid({ path }: { path: string }) {
   const { scene, animations } = useGLTF(path);
-  const { actions } = useAnimations(animations, scene);
+  const clonedScene = useMemo(() => scene.clone(true), [scene]);
+  const { actions } = useAnimations(animations, clonedScene);
   const { lidOpen } = useConfigurator();
 
   useEffect(() => {
-    const actionName = Object.keys(actions)[0]; // grab whatever clip exists, regardless of name
+    const actionName = Object.keys(actions)[0];
     const action = actionName ? actions[actionName] : undefined;
 
     if (!action) {
@@ -23,7 +24,7 @@ function AnimatedLid({ path }: { path: string }) {
     }
 
     action.stop();
-    action.setLoop(2201, -1); // THREE.LoopRepeat
+    action.setLoop(2201, -1);
     action.clampWhenFinished = true;
 
     if (lidOpen) {
@@ -37,7 +38,7 @@ function AnimatedLid({ path }: { path: string }) {
     }
   }, [lidOpen, actions, path]);
 
-  return <primitive object={scene} />;
+  return <primitive object={clonedScene} />;
 }
 
 function VinylPlayer({ rotationY }: VinylPlayerProps) {
@@ -50,16 +51,19 @@ function VinylPlayer({ rotationY }: VinylPlayerProps) {
   const buttonPath = theme.parts.button[selectedOptions["button"] ?? 0];
   const legPath = theme.parts.leg[selectedOptions["leg"] ?? 0];
   const lidPath = theme.parts.lid[0];
+
   const slipmatPath = theme.parts.slipmat[0];
 
   const slipmatOn = selectedOptions["dustCover"] === 1;
+
+
+
   return (
     <group scale={10} position={[0.5, -2, 0]} rotation={[0, rotationY, 0]}>
       <ModelPart path={bodyPath} />
       <ModelPart path={armPath} />
       <ModelPart path={buttonPath} />
       <ModelPart path={legPath} />
-      <AnimatedLid path={lidPath} />
       <AnimatedLid key={lidPath} path={lidPath} />
       {slipmatOn && <ModelPart path={slipmatPath} />}
     </group>
