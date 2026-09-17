@@ -46,6 +46,13 @@
   width: 1.5px;
   background: #111;
   transform: translateX(-50%);
+    background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #111 15%,
+    #111 85%,
+    transparent 100%
+  );
 }
 
 .step {
