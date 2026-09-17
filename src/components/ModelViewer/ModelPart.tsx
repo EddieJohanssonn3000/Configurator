@@ -1,8 +1,11 @@
 import { useGLTF } from "@react-three/drei";
+import { useMemo } from "react";
 
 function ModelPart({ path }: { path: string }) {
   const { scene } = useGLTF(path);
-  return <primitive object={scene} />;
+  const clonedScene = useMemo(() => scene.clone(true), [scene]);
+
+  return <primitive object={clonedScene} />;
 }
 
 export default ModelPart;
