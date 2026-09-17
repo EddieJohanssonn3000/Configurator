@@ -6,14 +6,16 @@ import feetB from "../../assets/images/Unikko_leg.webp";
 import armA from "../../assets/images/Unikko_arm.webp";
 import buttonA from "../../assets/images/Unikko_dial.webp";
 import sticker from "../../assets/images/Unikko_sticker.webp";
-import stereo from "../../assets/images/Unikko_stereo.webp"
-import arrow from "../../assets/images/BackArrow.svg"
-import slipmat from "../../assets/images/Unikko_slipmat.webp"
+import stereo from "../../assets/images/Unikko_stereo.webp";
+import arrow from "../../assets/images/BackArrow.svg";
+import slipmat from "../../assets/images/Unikko_slipmat.webp";
+import { Canvas } from "@react-three/fiber";
+import SummaryModel from "./SummaryModel";
 
 function Summary() {
   const [isConfigurationOpen, setIsConfigurationOpen] = useState(false);
-
   const { setActiveStep } = useConfigurator();
+  const [rotationY, setRotationY] = useState(0);
 
   return (
    <main className={styles.summary}>
@@ -30,7 +32,32 @@ function Summary() {
 
       <section className={styles.content}>
         <div className={styles.modelArea}>
-          <p>3D model</p>
+          <div className={styles.summaryCanvas}>
+            <Canvas camera={{ position: [0, 3, 10], fov: 40 }}>
+              <ambientLight intensity={1.5} />
+              <directionalLight position={[5, 5, 5]} intensity={2} />
+
+              <SummaryModel rotationY={rotationY} />
+            </Canvas>
+          </div>
+
+          <input
+            className={styles.summarySlider}
+            type="range"
+            min="0"
+            max="100"
+            value={((rotationY / Math.PI) + 1) * 50}
+            onChange={(e) => {
+              const value = Number(e.target.value);
+              const rotation = ((value - 50) / 50) * Math.PI;
+
+              setRotationY(rotation);
+            }}
+          />
+
+          <p className={styles.summarySliderLabel}>
+            Toggle to change view
+          </p>
         </div>
 
         <div className={styles.infoBox}>
