@@ -17,7 +17,7 @@ import { COLOR_THEMES } from "../../data/colorThemes";
 function preloadTheme(themeKey: keyof typeof COLOR_THEMES) {
   const theme = COLOR_THEMES[themeKey];
   Object.values(theme.parts).forEach((variants) => {
-    variants.forEach((path) => useGLTF.preload(path));
+    variants.forEach((path: string) => useGLTF.preload(path));
   });
 }
 
