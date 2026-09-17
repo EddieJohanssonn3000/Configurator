@@ -13,6 +13,7 @@ export const COLOR_THEMES = {
       ],
       leg: ["/models/RED/RED_RED_Leg_A.glb", "/models/RED/RED_RED_Leg_B.glb"],
       lid: ["/models/RED/RED_RED_Lid.glb"],
+      slipmat: ["/models/SLIPMAT/RED_Slipmat.glb"],
     },
   },
   gb: {
@@ -23,6 +24,7 @@ export const COLOR_THEMES = {
       button: ["/models/GB/GB_Button_A.glb", "/models/GB/GB_Button_B.glb"],
       leg: ["/models/GB/GB_Leg_A.glb", "/models/GB/GB_Leg_B.glb"],
       lid: ["/models/GB/GB_Lid.glb"],
+      slipmat: ["/models/SLIPMAT/GB_Slipmat.glb"],
     },
   },
   unikko: {
@@ -45,6 +47,7 @@ export const COLOR_THEMES = {
         "/models/UNIKKO/Unikko_Leg_B.glb",
       ],
       lid: ["/models/UNIKKO/Unikko_Lid.glb"],
+      slipmat: ["/models/SLIPMAT/Unikko_Slipmat.glb"],
     },
   },
   wood: {
@@ -67,6 +70,7 @@ export const COLOR_THEMES = {
         "/models/WOOD/WOOD_WOOD_Leg_B.glb",
       ],
       lid: ["/models/WOOD/WOOD_WOOD_Lid.glb"],
+      slipmat: ["/models/SLIPMAT/WOOD_Slipmat.glb"],
     },
   },
 } as const;

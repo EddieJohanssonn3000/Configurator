@@ -50,6 +50,9 @@ function VinylPlayer({ rotationY }: VinylPlayerProps) {
   const buttonPath = theme.parts.button[selectedOptions["button"] ?? 0];
   const legPath = theme.parts.leg[selectedOptions["leg"] ?? 0];
   const lidPath = theme.parts.lid[0];
+  const slipmatPath = theme.parts.slipmat[0];
+
+  const slipmatOn = selectedOptions["dustCover"] === 1;
   return (
     <group scale={10} position={[0.5, -2, 0]} rotation={[0, rotationY, 0]}>
       <ModelPart path={bodyPath} />
@@ -58,6 +61,7 @@ function VinylPlayer({ rotationY }: VinylPlayerProps) {
       <ModelPart path={legPath} />
       <AnimatedLid path={lidPath} />
       <AnimatedLid key={lidPath} path={lidPath} />
+      {slipmatOn && <ModelPart path={slipmatPath} />}
     </group>
   );
 }
