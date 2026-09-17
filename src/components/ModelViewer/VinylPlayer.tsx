@@ -57,6 +57,7 @@ function VinylPlayer({ rotationY }: VinylPlayerProps) {
       <ModelPart path={buttonPath} />
       <ModelPart path={legPath} />
       <AnimatedLid path={lidPath} />
+      <AnimatedLid key={lidPath} path={lidPath} />
     </group>
   );
 }
