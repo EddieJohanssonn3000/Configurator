@@ -12,19 +12,10 @@ export const FEATURES_BY_STEP = {
   Functions: [
     { key: "bluetooth", label: "Bluetooth", options: ["on", "off"] },
     { key: "light", label: "Light", options: ["on", "off"] },
-    { key: "body", label: "Stereo", options: ["A", "B"] },
+    { key: "stereo", label: "Stereo", options: ["on", "off"] },
   ],
   Custom: [
-    {
-      key: "stickerInside",
-      label: "Inside Sticker",
-      options: ["None", "A", "B", "C"],
-    },
-    {
-      key: "stickerLid",
-      label: "Lid Sticker",
-      options: ["None", "A", "B", "C"],
-    },
+    { key: "stickers", label: "Stickers", options: ["none", "logo"] },
     { key: "dustCover", label: "Slip Mat", options: ["off", "on"] },
   ],
 } as const;
