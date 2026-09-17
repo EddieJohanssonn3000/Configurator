@@ -51,7 +51,7 @@ function VinylPlayer({ rotationY }: VinylPlayerProps) {
   const legPath = theme.parts.leg[selectedOptions["leg"] ?? 0];
   const lidPath = theme.parts.lid[0];
   return (
-    <group scale={15} position={[0.5, -2, 0]} rotation={[0, rotationY, 0]}>
+    <group scale={10} position={[0.5, -2, 0]} rotation={[0, rotationY, 0]}>
       <ModelPart path={bodyPath} />
       <ModelPart path={armPath} />
       <ModelPart path={buttonPath} />
